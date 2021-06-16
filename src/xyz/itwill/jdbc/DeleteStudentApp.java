@@ -22,12 +22,17 @@ public class DeleteStudentApp {
 			
 			String sql = "delete from student where no=3000";
 			int rows = stmt.executeUpdate(sql);
-			System.out.println("[메시지]" + rows + "명의 학생이 삭제되었습니다.");
+			
+			if(rows > 0) {
+				System.out.println("[메시지]" + rows + "명의 학생이 삭제되었습니다.");	
+			} else {
+				System.out.println("[메시지]삭제하고자 하는 학번의 학생정보를 찾을 수 없습니다.");
+			}
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("[에러]OracleDriver Class 파일을 찾을 수 없습니다.");
 		} catch (SQLException e) {
-			System.out.println("[에러]JDBC 관련 문제가 발생하였습니다.");
+			System.out.println("[에러]JDBC 관련 문제가 발생하였습니다. " + e.getMessage());
 		} finally {		
 			try {
 				if(stmt!=null) stmt.close();

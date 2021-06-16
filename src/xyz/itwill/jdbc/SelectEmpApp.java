@@ -26,6 +26,7 @@ public class SelectEmpApp {
 			String sql = "select empno,ename,job,sal,deptno from emp order by sal desc";
 			rs = stmt.executeQuery(sql);
 			
+			/*
 			if(rs.next()) {
 				do {
 					int empno = rs.getInt("empno");
@@ -44,10 +45,21 @@ public class SelectEmpApp {
 			} else {
 				System.out.println("[메시지]검색된 정보가 없습니다.");
 			}
+			*/
+			
+			while(rs.next()) {
+				System.out.println("사원번호 = " + rs.getInt("empno"));
+				System.out.println("사원이름 = " + rs.getString("ename"));
+				System.out.println("업무 = " + rs.getString("job"));
+				System.out.println("급여 = " + rs.getInt("sal"));
+				System.out.println("부서번호 = " + rs.getInt("deptno"));
+				System.out.println("===================================");
+			}
+			
 		} catch (ClassNotFoundException e) {
 			System.out.println("[에러]OracleDriver 클래스를 찾을 수 없습니다.");
 		} catch (SQLException e) {
-			System.out.println("[에러]JDBC 관련 문제가 발생 하였습니다.");
+			System.out.println("[에러]JDBC 관련 문제가 발생 하였습니다." + e.getMessage());
 		} finally {
 			try {
 				if(rs!=null) rs.close();
