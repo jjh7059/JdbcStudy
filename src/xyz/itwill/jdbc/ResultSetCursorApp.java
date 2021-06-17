@@ -46,7 +46,7 @@ public class ResultSetCursorApp {
 		//resultSetConCurrency : ResultSet 커서 위치의 처리행에 대한 조작 관련 속성 변경
 		// => ResultSet.CONCUR_READ_ONLY : 처리행에 대한 조작 불가능(기본)
 		// => ResultSet.CONCUR_UPDATABLE : 처리행에 대한 조작 가능 - 테이블 적용 가능
-		stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		
 		sql = "select * from student order by no";
 		rs = stmt.executeQuery(sql);
