@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import oracle.ucp.jdbc.PoolDataSource;
 import oracle.ucp.jdbc.PoolDataSourceFactory;
+import oracle.ucp.jdbc.PoolDataSourceImpl;
 
 //javax.sql.DataSource : DBCP 클래스를 작성하기 위해 상속받는 인터페이스
 // => DBCP 클래스에 동일한 이름의 메소드가 선언되도록 메소드 작성 규칙을 제공
