@@ -122,7 +122,7 @@ public class StudentDAO extends JdbcDAO {
 		StudentDTO student = null;
 		try {
 			con = getConnection();
-			String sql = "select * from student where=?";
+			String sql = "select * from student where no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
 			
